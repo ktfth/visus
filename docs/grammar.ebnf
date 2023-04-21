@@ -1,0 +1,31 @@
+<ui-program> ::= <component-list>
+
+<component-list> ::= <component> | <component> <component-list>
+
+<component> ::= <button>
+
+<button> ::= "button" <button-attributes> "{" <button-label> "}"
+
+<button-attributes> ::= "(" <attribute-list> ")"
+
+<attribute-list> ::= <attribute> | <attribute> "," <attribute-list>
+
+<attribute> ::= <attribute-name> ":" <attribute-value>
+
+<attribute-name> ::= "text" | "onPressed" | "color"
+
+<attribute-value> ::= <string> | <identifier>
+
+<button-label> ::= <string>
+
+<string> ::= '"' <text> '"'
+
+<text> ::= <char> | <char> <text>
+
+<char> ::= <letter> | <digit> | <symbol>
+
+<letter> ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
+
+<digit> ::= "0" | "1" | ... | "9"
+
+<symbol> ::= "." | "," | ";" | ":" | "?" | "!" | "(" | ")" | "[" | "]" | "{" | "}"
