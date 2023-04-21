@@ -288,6 +288,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
+  visus_scanner:
+    dependency: "direct main"
+    description:
+      path: "../visus-scanner"
+      relative: true
+    source: path
+    version: "1.0.0"
+  visus_tokenizer:
+    dependency: "direct main"
+    description:
+      path: "../visus-tokenizer"
+      relative: true
+    source: path
+    version: "1.0.0"
   vm_service:
     dependency: transitive
     description:

@@ -6,8 +6,12 @@ version: 1.0.0
 environment:
   sdk: '>=2.17.5 <3.0.0'
 
-# dependencies:
+dependencies:
 #   path: ^1.8.0
+  visus_tokenizer:
+    path: ../visus-tokenizer
+  visus_scanner:
+    path: ../visus-scanner
 
 dev_dependencies:
   lints: ^2.0.0
