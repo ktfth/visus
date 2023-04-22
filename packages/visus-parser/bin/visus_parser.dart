@@ -3,9 +3,11 @@ import 'package:visus_parser/visus_parser.dart' as visus_parser;
 
 void main(List<String> arguments) {
   var program = '''
-button {
-  text: "Click me"
-}
+column: [
+  button {
+    text: "Click me"
+  }
+]
 ''';
   var scanner = Scanner(program);
   scanner.scan();

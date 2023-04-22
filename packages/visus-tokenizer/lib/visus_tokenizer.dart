@@ -24,6 +24,7 @@ enum TokenType {
   error,
   eof,
   char,
+  column,
 
   vif,
   vwhile,

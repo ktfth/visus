@@ -7,6 +7,7 @@ class Scanner {
   final keywords = {
     'label': TokenType.label,
     'button': TokenType.button,
+    'column': TokenType.column,
     'padding': TokenType.padding,
     'child': TokenType.child,
     'text': TokenType.text,
@@ -47,10 +48,10 @@ class Scanner {
         addToken(TokenType.rbrace);
         break;
       case '[':
-        addToken(TokenType.rbracket);
+        addToken(TokenType.lbracket);
         break;
       case ']':
-        addToken(TokenType.lbracket);
+        addToken(TokenType.rbracket);
         break;
       case ',':
         addToken(TokenType.comma);

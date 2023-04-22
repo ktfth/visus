@@ -6,9 +6,11 @@ import 'package:visus_compiler/visus_compiler.dart' as visus_compiler;
 
 void main(List<String> arguments) {
   var program = '''
-button {
-  text: "Yeah!"
-}
+column: [
+  button {
+    text: "Yeah!"
+  }
+]
 ''';
   var scanner = Scanner(program);
   scanner.scan();

@@ -12,8 +12,37 @@ class Compiler {
   String compileUIProgram(List<Component> components) {
     String code = '';
     for (Component component in components) {
-      code += compileButton(component as Button);
+      if (component is ColumnComponent) {
+        code += compileColumn(component);
+      } else if (component is Button) {
+        code += compileButton(component);
+      }
     }
+    return code;
+  }
+
+  String compileColumn(ColumnComponent column) {
+    String code = 'Column(\n';
+    code += '  children: [\n';
+    for (Component child in column.children) {
+      if (child is Button) {
+        var compiledButton = compileButton(child);
+        var index = 0;
+        var lastLineIndex = compiledButton.split('\n').length - 1;
+        compiledButton.split('\n').forEach((line) {
+          code += '    $line';
+          if (index == lastLineIndex) {
+            code += ',\n';
+          } else {
+            code += '\n';
+          }
+          index++;
+        });
+      }
+      // adicione aqui qualquer outro tipo de componente que desejar suportar
+    }
+    code += '  ]\n';
+    code += ')';
     return code;
   }
 
@@ -28,8 +57,7 @@ class Compiler {
 ElevatedButton(
   onPressed: $onPressed,
   child: Text('$text'),
-)
-''';
+)''';
 
     return code;
   }
