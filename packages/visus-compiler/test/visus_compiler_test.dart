@@ -1,4 +1,4 @@
-import 'package:visus_semantic_code_generator/visus_semantic_code_generator.dart';
+import 'package:visus_compiler/visus_compiler.dart';
 import 'package:test/test.dart';
 
 void main() {
