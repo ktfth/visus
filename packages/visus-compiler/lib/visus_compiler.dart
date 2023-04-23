@@ -12,7 +12,13 @@ class Compiler {
   String compileUIProgram(List<Component> components) {
     String code = '';
     for (Component component in components) {
-      if (component is ColumnComponent) {
+      if (component is ScaffoldComponent) {
+        code += compileScaffold(component);
+      } else if (component is AppBarComponent) {
+        code += compileAppBar(component);
+      } else if (component is BodyComponent) {
+        code += compileBody(component);
+      } else if (component is ColumnComponent) {
         code += compileColumn(component);
       } else if (component is Button) {
         code += compileButton(component);
@@ -21,16 +27,47 @@ class Compiler {
     return code;
   }
 
+  // Write the scaffold component compile function
+  String compileScaffold(ScaffoldComponent scaffold) {
+    String code = 'Scaffold(\n';
+    code += '  appBar: ';
+    code += compileAppBar(scaffold.appBar);
+    code += ',\n';
+    code += '  body: ';
+    code += compileBody(scaffold.body as BodyComponent);
+    code += ',\n';
+    code += ')';
+    return code;
+  }
+
+  // Write the appbar component compile function
+  String compileAppBar(AppBarComponent appBar) {
+    String code = 'AppBar(\n';
+    code += '    title: Text("${appBar.title}"),\n';
+    code += '  )';
+    return code;
+  }
+
+  // Write the body component compile function
+  String compileBody(BodyComponent body) {
+    String code = 'Body(\n';
+    code += '    child: ';
+    code += compileColumn(body.column[0] as ColumnComponent);
+    code += ',\n';
+    code += '  )';
+    return code;
+  }
+
   String compileColumn(ColumnComponent column) {
     String code = 'Column(\n';
-    code += '  children: [\n';
+    code += '        children: [\n';
     for (Component child in column.children) {
       if (child is Button) {
         var compiledButton = compileButton(child);
         var index = 0;
         var lastLineIndex = compiledButton.split('\n').length - 1;
         compiledButton.split('\n').forEach((line) {
-          code += '    $line';
+          code += '            $line';
           if (index == lastLineIndex) {
             code += ',\n';
           } else {
@@ -41,8 +78,8 @@ class Compiler {
       }
       // adicione aqui qualquer outro tipo de componente que desejar suportar
     }
-    code += '  ]\n';
-    code += ')';
+    code += '        ]\n';
+    code += '    )';
     return code;
   }
 

@@ -6,12 +6,18 @@ import 'package:visus_compiler/visus_compiler.dart' as visus_compiler;
 
 void main(List<String> arguments) {
   var program = '''
-column: [
-  button {
-    text: "Yeah!"
+scaffold {
+  appbar {
+    title: "My App"
   }
-]
-''';
+  body {
+    column [
+      button {
+        text: "Click me"
+      }
+    ]
+  }
+}''';
   var scanner = Scanner(program);
   scanner.scan();
   var parser = Parser(scanner.tokens);

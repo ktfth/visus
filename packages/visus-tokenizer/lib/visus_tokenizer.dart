@@ -25,6 +25,10 @@ enum TokenType {
   eof,
   char,
   column,
+  title,
+  backgroundColor,
+  hex,
+  value,
 
   vif,
   vwhile,

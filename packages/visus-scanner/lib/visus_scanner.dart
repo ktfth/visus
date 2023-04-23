@@ -7,6 +7,10 @@ class Scanner {
   final keywords = {
     'label': TokenType.label,
     'button': TokenType.button,
+    'scaffold': TokenType.scaffold,
+    'appbar': TokenType.appBar,
+    'title': TokenType.title,
+    'body': TokenType.body,
     'column': TokenType.column,
     'padding': TokenType.padding,
     'child': TokenType.child,
