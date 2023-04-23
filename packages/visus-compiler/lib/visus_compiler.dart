@@ -24,7 +24,21 @@ class Compiler {
         code += compileButton(component);
       }
     }
-    return code;
+    String header = '${code.split('\n')[0]}\n';
+    code = header +
+        code.split('\n').sublist(1).map((line) {
+          return '    $line';
+        }).join('\n');
+    String wrapper = '''
+import 'package:flutter/material.dart';
+
+class MyScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return $code;
+  }
+}''';
+    return wrapper;
   }
 
   // Write the scaffold component compile function

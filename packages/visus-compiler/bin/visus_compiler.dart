@@ -8,12 +8,12 @@ void main(List<String> arguments) {
   var program = '''
 scaffold {
   appbar {
-    title: "My App"
+    title: "Visus"
   }
   body {
     column [
       button {
-        text: "Click me"
+        text: "Click me to visualize!"
       }
     ]
   }
