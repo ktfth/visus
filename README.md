@@ -1,5 +1,9 @@
 # Visus
 
+Help to fund this project and get things done to delivery a good quality project.
+
+https://ko-fi.com/ktfth
+
 ## Description
 
 Flutter screens made easy.
